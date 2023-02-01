@@ -1,13 +1,24 @@
 import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Disclosure, Menu } from '@headlessui/react'
 
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+import { Popover, Transition } from '@headlessui/react'
+import {BsMoonStarsFill, BsCloudSunFill} from 'react-icons/bs'
+import {DiGhostSmall} from 'react-icons/di'
+
+import { AiFillCaretDown } from 'react-icons/ai'
+/*const navigation = [
+  { name: 'Latest', href: '#', current: false, icon: 'code' },
+  { name: 'Team', href: 'https://github.com', icon: 'dropdown' },
+
 ]
+
+const drop_links = [
+  { href: '/git-blg', label: 'Git' },
+  { href: '/js-blg', label: 'Javascript' },
+  { href: '/py-blg', label: 'Python' },
+  { href: '/react-blg', label: 'React' },
+  { href: '/go-blg', label: 'GoLang' },
+] */
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -15,89 +26,94 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-gray-800">
-      {({ open }) => (
-        <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-8 w-auto lg:hidden"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
-                  />
-                  <img
-                    className="hidden h-8 w-auto lg:block"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
-                  />
-                </div>
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className=" ml-80   flex space-x-4">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+    <Popover as="nav" className=" bg-[#080d16]  ">
+<header className='fixed w-full border-t-4 bg-white dark:bg-dark border-white dark:border-[#2532ad] shadow dark:shadow-2 z-50' ></header>
+      <>
+        <div className="mx-auto py-1 px-2 sm:px-6 lg:px-8 bg-[#080d16]">
+          <div className="relative flex h-16 items-center justify-between">
+            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              {/* Mobile menu button*/}
 
-                
+            </div>
+            <div className=" mr-2 sm:items-stretch sm:justify-start">
+
+              <div className=" flex items-start mx-auto px-6 sm:ml-6 sm:block">
+                <div className=" ml-0  flex hide ">
+
+                  <>
+                    <a
+                      //key={item.name}
+                      href="#"
+                      className='font-bold text-white 
+                          px-3 py-2 rounded-md  text-base flex flex-row text-lg'
+
+                    //aria-current={current ? 'page' : undefined}
+                    >
+                      <DiGhostSmall className='mt-1.5 text-xl' />
+                      Latest
+                    </a>
+                    <div className="group inline-block relative">
+                      <button
+                        className=" bg-transparent text-gray-700 font-semibold py-2 px-8 rounded inline-flex items-center"
+                      >
+                        <span className="font-bold text-white 
+                          px-3  rounded-md  text-base flex flex-row text-lg">Posts</span>
+                        <AiFillCaretDown className='text-white' />
+                      </button>
+                      <ul className="absolute right-0 hidden text-white  group-hover:block">
+                        <li className="">
+                          <a
+                            className="rounded-t-lg bg-black dark:bg-dark text-gray-800 dark:text-gray-50 py-2 px-4 block whitespace-no-wrap"
+                            href="#"
+                          >Git</a
+                          >
+                        </li>
+                        <li className="">
+                          <a
+                            className="bg-[#000] py-2 px-4 block whitespace-no-wrap"
+                            href="#"
+                          >JavaScript</a
+                          >
+                        </li>
+                        <li className="">
+                          <a
+                            className="rounded-b-lg bg-[#000]  py-2 px-4 block whitespace-no-wrap"
+                            href="#"
+                          >React</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </>
+
+                </div>
               </div>
+
+            </div>
+            <div className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <Disclosure>
+                {({ open }) => (
+                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400  hover:text-white focus:outline-none ">
+                    <span className="sr-only">Open main menu</span>
+                    {open ? (
+                      <BsMoonStarsFill className="block h-6 w-6 text-white" aria-hidden="true" />
+                    ) : (
+                      <BsCloudSunFill className="block h-6 w-6 text-white outline-none" aria-hidden="true" />
+                    )}
+                  </Disclosure.Button>
+                )}
+
+              </Disclosure>
+
+
             </div>
           </div>
+        </div>
 
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pt-2 pb-3">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
+
+      </>
+
+    </Popover>
   )
 }
-
 

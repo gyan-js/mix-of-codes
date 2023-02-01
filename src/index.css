@@ -44,13 +44,10 @@ code {
   outline: none;
 }
 
-.home-section{
-  position: relative;
-  z-index: 1;
-  background-image: var(--image-gradient);
-  background-position:  center;
-  background-repeat: no-repeat;
-  padding-bottom: 30px !important;
-  padding-top: 30px !important;
-}
 
+
+@media (min-width: 430px) {
+  .hide {
+      margin-left: 24rem/* 384px */;
+  }
+}
