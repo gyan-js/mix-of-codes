@@ -1,9 +1,9 @@
-import { Fragment } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Disclosure, Menu } from '@headlessui/react'
 
 import { Popover, Transition } from '@headlessui/react'
-import {BsMoonStarsFill, BsCloudSunFill} from 'react-icons/bs'
-import {DiGhostSmall} from 'react-icons/di'
+import { BsMoonStarsFill, BsCloudSunFill } from 'react-icons/bs'
+import { DiGhostSmall } from 'react-icons/di'
 
 import { AiFillCaretDown } from 'react-icons/ai'
 /*const navigation = [
@@ -24,10 +24,35 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+function Navbar() {
+  const [theme, setTheme] = useState()
+
+  useEffect(() => {
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark')
+    }
+    else{
+      setTheme('light')
+    }
+  }, [])
+  
+
+  useEffect(() => {
+    if(theme === "dark") {
+      document.documentElement.classList.add("dark")
+    }
+    else{
+      document.documentElement.classList.remove("dark")
+    }
+  }, [theme])
+
+  const themeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
+
   return (
     <Popover as="nav" className=" bg-[#080d16]  ">
-<header className='fixed w-full border-t-4 bg-white dark:bg-dark border-white dark:border-[#2532ad] shadow dark:shadow-2 z-50' ></header>
+      <header className=' border-[#000] fixed w-full border-t-4  dark:border-indigo-600 shadow dark:shadow-2 z-50' ></header>
       <>
         <div className="mx-auto py-1 px-2 sm:px-6 lg:px-8 bg-[#080d16]">
           <div className="relative flex h-16 items-center justify-between">
@@ -63,14 +88,14 @@ export default function Navbar() {
                       <ul className="absolute right-0 hidden text-white  group-hover:block">
                         <li className="">
                           <a
-                            className="rounded-t-lg bg-black dark:bg-dark text-gray-800 dark:text-gray-50 py-2 px-4 block whitespace-no-wrap"
+                            className="rounded-t-lg bg-[#000]  dark:text-gray-50 py-2 px-4 block whitespace-no-wrap"
                             href="#"
                           >Git</a
                           >
                         </li>
                         <li className="">
                           <a
-                            className="bg-[#000] py-2 px-4 block whitespace-no-wrap"
+                            className="bg-[#000]  py-2 px-4 block whitespace-no-wrap"
                             href="#"
                           >JavaScript</a
                           >
@@ -91,20 +116,15 @@ export default function Navbar() {
 
             </div>
             <div className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <Disclosure>
-                {({ open }) => (
-                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400  hover:text-white focus:outline-none ">
-                    <span className="sr-only">Open main menu</span>
-                    {open ? (
-                      <BsMoonStarsFill className="block h-6 w-6 text-white" aria-hidden="true" />
-                    ) : (
-                      <BsCloudSunFill className="block h-6 w-6 text-white outline-none" aria-hidden="true" />
-                    )}
-                  </Disclosure.Button>
-                )}
-
-              </Disclosure>
-
+              
+            <div className=''>
+    <input type="checkbox" className="checkbox" id="checkbox" onChange={themeSwitch} />
+  <label for="checkbox" class="label">
+  <BsCloudSunFill style={{color: 'white'}} />
+    <BsMoonStarsFill style={{color: 'white'}} />
+    <div class='ball bg-indigo-600' />
+  </label>
+</div>
 
             </div>
           </div>
@@ -117,3 +137,6 @@ export default function Navbar() {
   )
 }
 
+
+
+export default Navbar;
