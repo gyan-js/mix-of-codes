@@ -9,9 +9,7 @@ import { AiFillCaretDown } from 'react-icons/ai'
 /*const navigation = [
   { name: 'Latest', href: '#', current: false, icon: 'code' },
   { name: 'Team', href: 'https://github.com', icon: 'dropdown' },
-
 ]
-
 const drop_links = [
   { href: '/git-blg', label: 'Git' },
   { href: '/js-blg', label: 'Javascript' },
@@ -51,7 +49,7 @@ function Navbar() {
   }
 
   return (
-    <Popover as="nav" className=" bg-[#080d16]  ">
+    <Popover as="nav" className=" sticky top-0 bg-[#080d16]  ">
       <header className=' border-[#000] fixed w-full border-t-4  dark:border-indigo-600 shadow dark:shadow-2 z-50' ></header>
       <>
         <div className="mx-auto py-1 px-2 sm:px-6 lg:px-8 bg-[#080d16]">
