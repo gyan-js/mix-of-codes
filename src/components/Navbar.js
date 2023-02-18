@@ -105,7 +105,7 @@ function Navbar() {
                             <a
                               class="rounded-b dark:bg-black dark:text-gray-50 hover:bg-gray-300 py-2 px-4 block whitespace-no-wrap"
                               onClick={() => navigate(`/topics/${navigation_routes[2]}`)}
-                            >Three is the magic number 
+                            >React
                             </a>
                           </li>
 
