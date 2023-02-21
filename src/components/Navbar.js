@@ -82,7 +82,7 @@ function Navbar() {
                         <button
                           class="flex items-center hover:text-indigo-600 text-gray-800 dark:text-gray-50 mx-6 cursor-pointer"
                         >
-                          <span class="mr-1 font-bold ">Dropdown</span>
+                          <span class="mr-1 font-bold ">Post</span>
                           <AiFillCaretDown />
                         </button>
                         <ul className="z-100 opacity-100 dark:bg-black rounded-br-8 ml-[-50px] mt-40 dropdown-menu absolute group-hover:block hidden text-gray-700 pt-1 bg-white dark:bg-dark w-40  rounded-xl left-1/3">
