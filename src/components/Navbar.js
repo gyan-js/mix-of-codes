@@ -48,7 +48,7 @@ function Navbar() {
   const navigate = useNavigate()
 
   return (
-    <Popover as="nav" className=" sticky top-0 bg-[#080d16] ">
+    <Popover as="nav" className="  top-0 bg-[#080d16] ">
 
       <>
         <div className="mx-auto py-1 px-2 sm:px-6 lg:px-8 bg-white dark:bg-[#080d16] drop-shadow">
@@ -66,7 +66,7 @@ function Navbar() {
                     <a
                       //key={item.name}
                         
-                      className='font-bold text-indigo-600 dark:text-white 
+                      className='cursor-pointer font-bold text-indigo-600 dark:text-white 
                           px-3 py-2 rounded-md  text-base flex flex-row text-lg'
                           onClick={() => navigate('/')}
 
@@ -85,10 +85,10 @@ function Navbar() {
                           <span class="mr-1 font-bold ">Dropdown</span>
                           <AiFillCaretDown />
                         </button>
-                        <ul className=" dark:bg-black rounded-br-8 ml-[-50px] mt-48 dropdown-menu absolute group-hover:block hidden text-gray-700 pt-1 bg-white dark:bg-dark w-40  rounded-xl left-1/3">
+                        <ul className="z-100 opacity-100 dark:bg-black rounded-br-8 ml-[-50px] mt-40 dropdown-menu absolute group-hover:block hidden text-gray-700 pt-1 bg-white dark:bg-dark w-40  rounded-xl left-1/3">
                           <li class="">
                             <a
-                              class="hover:bg-gray-300 rounded-t dark:bg-black text-gray-800 dark:text-gray-50 py-2 px-4 block whitespace-no-wrap"
+                              class="cursor-pointer hover:bg-gray-300 rounded-t dark:bg-black text-gray-800 dark:text-gray-50 py-2 px-4 block whitespace-no-wrap"
                               onClick={() => navigate(`/topics/${navigation_routes[0]}`)}
                             >Git</a
                             >
@@ -112,6 +112,7 @@ function Navbar() {
 
                         </ul>
                       </div>
+                      
 
                     </div>
                   </>
