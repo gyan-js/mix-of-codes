@@ -4,16 +4,20 @@ import { BsSunFill } from 'react-icons/bs'
 const TGit = () => {
   
   return (
+   
     blogs.filter(function (blog) {
+      
       return blog.key === 'Git'
     }).map(function (blog) {
       return (
-        <div className='flex align-end flex-wrap' >
+        
+        <div className='py-12 px-16 font-mono min-h-screen min-w-full dark:bg-[#0e141f]' >
+          <span className='text-[#2c2c2c] font-sans font-semibold text-3xl py-1 px-1 ml-[40px] mt-[60px]'>Git</span>
         <div className="cursor-pointer group px-6 py-6 md:px-10 md:w-1/3 flex flex-col items-start rounded transform">
-        <span className="inline-block py-1 px-2 rounded bg-gray-100 dark:bg-indigo-900 text-indigo-700 dark:text-gray-200 text-sm font-medium tracking-widest">
+        <span className="inline-block py-1 px-2 rounded bg-gray-100 dark:bg-indigo-800 text-indigo-700 dark:text-white text-sm font-medium tracking-widest">
           {blog.Tag}
         </span>
-        <h2 className="sm:text-2xl text-xl title-font font-semibold text-gray-700 mt-4 mb-4 dark:text-gray-100 group-hover:text-indigo-800 dark:group-hover:text-indigo-400">
+        <h2 className="sm:text-2xl text-xl title-font font-semibold text-gray-700 mt-4 mb-4 dark:text-white group-hover:text-indigo-800 dark:group-hover:text-indigo-400">
           {blog.title}
         </h2>
         <p className="leading-relaxed mb-5 text-gray-800 dark:text-gray-200">
@@ -37,7 +41,7 @@ const TGit = () => {
           </a>
         </div>
       </div>
-      </div>
+     </div>
       )
     })
   )
