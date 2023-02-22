@@ -2,11 +2,14 @@ import React from 'react'
 import blogs from '../context/blogs'
 import {BsFillArrowRightSquareFill} from 'react-icons/bs'
 const TReact = () => {
+  const article = blogs.filter(function(blog) {
+    return blog.key === 'React'
+  })
   return (
     <div className='min-h-screen min-w-full dark:bg-[#0e141f] px-10 py-10' >
       <div className='flex flex-wrap justify-between' >
        <span className=' dark:text-white text-[#2c2c2c] font-sans font-semibold text-3xl py-1 px-1 ml-[40px] '>React</span>
-       <span className=' dark:text-white text-[#2c2c2c] font-sans font-semibold text-3xl '>Articles: </span>
+       <span className=' dark:text-white text-[#2c2c2c] font-sans font-semibold text-3xl '>Articles:{article.length}</span>
       </div>
     <div className='flex align-end flex-wrap' >
      
